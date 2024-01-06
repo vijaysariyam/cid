@@ -44,11 +44,11 @@ jobs:
         run: flutter test
       # Generate APK
       - name: Generate APK
-        run: flutter build apk --split-per-abi
+        run: flutter build apk
 
       # Save APK as artifact
       - name: Save artifact
         uses: actions/upload-artifact@v2
         with:
           name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/apk/release/app-release.apk
