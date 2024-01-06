@@ -50,8 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Center(child: Text("hi")),
           decoration: BoxDecoration(
             gradient: LinearGradient(
-                stops: [0.1, 0.25, 0.5, 0.75],
-                colors: [Colors.red, Colors.blue, Colors.green, Colors.yellow],
+                //stops: [0.1, 0.4, 0.6, 0.9],
+                colors: [Colors.orange, Colors.yellow],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft),
           )),
