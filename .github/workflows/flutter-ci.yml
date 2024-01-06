@@ -1,4 +1,4 @@
-name: Flutter-CI
+name: Flutter CI
 
 on:
   push:
@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
