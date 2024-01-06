@@ -1,4 +1,4 @@
-name: Android/Ios Release
+name: Android Release
 
 # 1
 on:
@@ -15,9 +15,8 @@ on:
 jobs:
   # 5
   build:
-    # 
-    name: Build & Release
-    runs-on: macos-latest
+    # 6
+    runs-on: ubuntu-latest
 
     # 7
     steps:
@@ -35,7 +34,6 @@ jobs:
           # 11
           flutter-version: "3.0.0"
           channel: 'stable'
-          architecture: x64
           cache: true
       # 12
       - name: Get dependencies
@@ -48,9 +46,9 @@ jobs:
       - name: Generate APK
         run: flutter build apk --release --split-per-abi
 
-      - name: Push to Releases
-        uses: ncipollo/release-action@v1
+      # Save APK as artifact
+      - name: Save artifact
+        uses: actions/upload-artifact@v2
         with:
-          artifacts: "build/app/outputs/apk/release/*"
-          tag: v1.0.${{ github.run_number }}
-          token: ${{ secrets.TOKEN }}
+          name: release-apk
+          path: build/app/outputs/apk/release/app-release.apk
