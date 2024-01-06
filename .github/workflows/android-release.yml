@@ -42,14 +42,13 @@ jobs:
       # Run tests
       - name: Run Flutter tests
         run: flutter test
+      # Generate APK
+      - name: Generate APK
+        run: flutter build apk --split-per-abi
 
-      # Generate debug app bundle
-      - name: Generate debug app bundle
-        run: flutter build appbundle --debug
-
-      # Save debug app bundle as artifact
+      # Save APK as artifact
       - name: Save artifact
         uses: actions/upload-artifact@v2
         with:
-          name: debug-app-bundle
-          path: build/app/outputs/bundle/debug/app.aab # Adjust the path to your generated .aab file
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
