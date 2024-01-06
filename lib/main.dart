@@ -47,12 +47,14 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.orange,
       ),
       body: Container(
+          child: Center(child: Text("hi")),
           decoration: BoxDecoration(
-        gradient: LinearGradient(
-            colors: [Colors.red, Colors.blue],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft),
-      )),
+            gradient: LinearGradient(
+                stops: [0.1, 0.25, 0.5, 0.75],
+                colors: [Colors.red, Colors.blue, Colors.green, Colors.yellow],
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft),
+          )),
     );
   }
 }
