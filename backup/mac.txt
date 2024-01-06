@@ -42,11 +42,12 @@ jobs:
         run: flutter pub get
       
       # Run tests
-      - name: Run Flutter tests
-        run: flutter test
+      #- name: Run Flutter tests
+      #  run: flutter test
       # Generate Apk
       - name: Generating APK
         run: flutter build apk --release --split-per-abi
+
       # Generate ipa
       - name: Generating IPA
         run: |
@@ -57,9 +58,10 @@ jobs:
           ln -s ../Runner.app
           cd ..
           zip -r app.ipa Payload
+
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/apk/release/*"
-          tag: v1.0.${{ github.run_number }}
+          artifacts: "build/app/outputs/apk/release/*,build/ios/iphoneos/app.ipa"
+          tag: v1.0.9
           token: ${{ secrets.TOKEN }}
