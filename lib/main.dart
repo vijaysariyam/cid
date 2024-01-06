@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -41,12 +42,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Hello World"),
-          backgroundColor: Colors.teal,
-        ),
-        body: Container(
-            //decoration: BoxDecoration(gradient: Gradient([Colors.black, Colors.white] , )),
-            ));
+      appBar: AppBar(
+        title: const Text("Hello World"),
+        backgroundColor: Colors.orange,
+      ),
+      body: Container(
+          decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [Colors.red, Colors.blue],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft),
+      )),
+    );
   }
 }

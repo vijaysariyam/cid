@@ -42,8 +42,8 @@ jobs:
         run: flutter pub get
       
       # Run tests
-      #- name: Run Flutter tests
-      #  run: flutter test
+      - name: Run Flutter tests
+        run: flutter test
       # Generate Apk
       - name: Generating APK
         run: flutter build apk --release --split-per-abi
