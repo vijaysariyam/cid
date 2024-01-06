@@ -44,10 +44,18 @@ jobs:
       # Run tests
       - name: Run Flutter tests
         run: flutter test
-      # Generate APK
+      # Generate Apk
       - name: Generate APK
         run: flutter build apk --release --split-per-abi
-
+      # Generate ipa
+      - run: |
+          flutter build ios --no-codesign
+          cd build/ios/iphoneos
+          mkdir Payload
+          cd Payload
+          ln -s ../Runner.app
+          cd ..
+          zip -r app.ipa Payload
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
