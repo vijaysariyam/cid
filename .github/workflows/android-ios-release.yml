@@ -47,18 +47,8 @@ jobs:
       # Generate Apk
       - name: Generating APK
         run: flutter build apk --release --split-per-abi
-      # Generate ipa
-      '''
-      - name: Generating IPA
-        run: |
-             flutter build ios --no-codesign
-             cd build/ios/iphoneos
-             mkdir Payload
-             cd Payload
-             ln -s ../Runner.app
-             cd ..
-             zip -r app.ipa  '''
-             
+
+
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
