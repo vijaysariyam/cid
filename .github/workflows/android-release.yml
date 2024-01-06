@@ -38,7 +38,18 @@ jobs:
       # 12
       - name: Get dependencies
         run: flutter pub get
+      
+      # Run tests
+      - name: Run Flutter tests
+        run: flutter test
 
-      # Runs a set of commands using the runners shell
-      - name: Start release build
-        run: flutter build appbundle
+      # Generate debug app bundle
+      - name: Generate debug app bundle
+        run: flutter build appbundle --debug
+
+      # Save debug app bundle as artifact
+      - name: Save artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: debug-app-bundle
+          path: build/app/outputs/bundle/debug/app.aab # Adjust the path to your generated .aab file
