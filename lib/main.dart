@@ -49,11 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
           child: Center(child: Text("hi")),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-                //stops: [0.1, 0.4, 0.6, 0.9],
-                colors: [Colors.orange, Colors.yellow],
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft),
+            shape: BoxShape.circle,
+            gradient: RadialGradient(
+              //stops: [0.1, 0.4, 0.6, 0.9],
+              colors: [Colors.orange, Colors.yellow],
+              //begin: Alignment.topRight,
+              //end: Alignment.bottomLeft
+            ),
           )),
     );
   }
